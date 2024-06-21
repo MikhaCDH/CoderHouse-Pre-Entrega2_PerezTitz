@@ -1,63 +1,23 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    scrollbar-color: #454a4d #202324;
-}
-.navbar {
-    background-color: #343a40;
-}
-.navbar-brand, .nav-link {
-    color: #ffffff !important;
-}
-.fixed-top-container {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: #343a40;
-}
-.search-bar {
-    background-color: #ffffff;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.search-bar form {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-.search-bar .input-group {
-    width: 75%;
-}
-.search-bar input {
-    border-radius: 0;
-}
-.search-bar input:focus {
-    box-shadow: none;
-}
-.search-bar .input-group-append .btn {
-    border-radius: 0 25px 25px 0;
-}
-.search-bar .input-group-prepend .input-group-text {
-    background-color: white;
-    border-right: none;
-}
 .content {
-    margin-top: 136px; /* Espacio para navbar y search bar */
+    margin-top: 136px;
 }
+
 .card {
     transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
 .card-img-top {
     height: 250px;
     width: 250px;
     align-self: center;
     object-fit: cover;
 }
+
 .carousel-control-prev, .carousel-control-next {
     width: 50px;
     height: 50px;
@@ -68,20 +28,25 @@ body {
     position: absolute;
     top: 50%;
 }
+
 .carousel-control-prev-icon, .carousel-control-next-icon {
     color: #ffffff;
 }
+
 .carousel-control-prev:hover, .carousel-control-next:hover {
     background-color: rgba(0, 0, 0, 0.7);
     transition: background-color 0.3s;
 }
+
 .carousel-control-prev:focus, .carousel-control-next:focus {
     outline: none;
     box-shadow: none;
 }
+
 .carousel-control-prev {
     left: -5rem;
 }
+
 .carousel-control-next {
     right: -5rem;
 }
@@ -110,8 +75,6 @@ body {
     text-decoration: underline;
 }
 
-
-
 @media (min-width: 769px) and (max-width: 991px) {
     .card-img-top {
         height: 10rem;
@@ -119,9 +82,7 @@ body {
         align-self: center;
         object-fit: cover;
     }
-
 }
-
 
 @media (max-width: 768px) {
     .card-img-top {
@@ -134,7 +95,6 @@ body {
     .content h2 {
         margin-top: 25%;
     }
-
 
     .mobile-hidden {
         display: none;

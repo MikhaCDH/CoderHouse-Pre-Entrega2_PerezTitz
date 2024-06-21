@@ -3,12 +3,15 @@ body {
     background-color: #f8f9fa;
     scrollbar-color: #454a4d #202324;
 }
+
 .navbar {
     background-color: #343a40;
 }
+
 .navbar-brand, .nav-link {
     color: #ffffff !important;
 }
+
 .fixed-top-container {
     position: fixed;
     top: 0;
@@ -16,34 +19,42 @@ body {
     z-index: 1000;
     background-color: #343a40;
 }
+
 .search-bar {
     background-color: #ffffff;
     padding: 10px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .search-bar form {
     display: flex;
     justify-content: center;
     width: 100%;
 }
+
 .search-bar .input-group {
     width: 75%;
 }
+
 .search-bar input {
     border-radius: 0;
 }
+
 .search-bar input:focus {
     box-shadow: none;
 }
+
 .search-bar .input-group-append .btn {
     border-radius: 0 25px 25px 0;
 }
+
 .search-bar .input-group-prepend .input-group-text {
     background-color: white;
     border-right: none;
 }
+
 .content {
-    margin-top: 136px; /* Espacio para navbar y search bar */
+    margin-top: 136px;
 }
 
 .footer {
@@ -75,27 +86,30 @@ body {
     padding: 10px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
-    top: 106px; /* Altura de la navbar + search bar */
+    top: 106px;
     width: 100%;
     z-index: 998;
     text-align: center;
 }
+
 .menu-secciones a {
     margin: 0 15px;
     color: #000;
     text-decoration: none;
     
 }
+
 .menu-secciones a:hover {
     text-decoration: underline;
 }
+
 .card-img-top {
     cursor: pointer;
 }
 
 .card-title, .card-text {
     white-space: nowrap;
-    overflow: hidden; /* Para ocultar el contenido que se desborda */
+    overflow: hidden;
     text-overflow: ellipsis;
 }
 
