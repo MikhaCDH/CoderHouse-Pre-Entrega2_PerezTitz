@@ -30,7 +30,7 @@
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
-    color: #ffffff;
+    color: #fff;
 }
 
 .carousel-control-prev:hover, .carousel-control-next:hover {
@@ -53,11 +53,11 @@
 
 .footer {
     background-color: #343a40;
-    color: #ffffff;
+    color: #fff;
     padding: 20px 0;
 }
 .footer a {
-    color: #ffffff;
+    color: #fff;
 }
 
 .input-group-text {
