@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NehuOffers</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="shortcut icon" href="./assets/images/carrito.svg" type="image/x-icon">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="fixed-top-container">
+        <!-- Inicio de Sesión -->
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">NehuOffers</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><img src="./assets/images/usuario.svg" alt="Icono de Inicio de Sesión">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><img src="./assets/images/carrito.svg" alt="Icono de Carrito de Compras">Ver Carrito</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </nav>
+
+        <!-- Barra de Búsqueda -->
+        <div class="search-bar">
+            <div class="container">
+                <form class="form-inline w-100">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                        </div>
+                        <input type="search" class="form-control" placeholder="Buscar productos" aria-label="Buscar productos" aria-describedby="basic-addon1">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-success">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <div class="menu-secciones mobile-hidden">
+            <div class="container">
+                <a href="./index.html">Inicio</a>
+                <a href="./pages/1-ofertas.html">Ofertas</a>
+                <a href="./pages/2-procesadores.html">Procesadores</a>
+                <a href="./pages/3-memoriasram.html">Memoria Ram</a>
+                <a href="./pages/4-placasdevideo.html">Placas de Video</a>
+                <a href="./pages/5-discosduros.html">Discos Duros</a>
+                <a href="./pages/6-placasbase.html">Placas Base</a>
+                <a href="./pages/7-perifericos.html">Periféricos</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrousel Novedades Content -->
+    <div class="container content">
+        <h2>Novedades</h2>
+        <div id="productCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="./assets/images/ryzen75800x.jpg" class="card-img-top" alt="Producto 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ryzen 7 5800X</h5>
+                                    <p class="card-text">Descripción breve del producto 1.</p>
+                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="./assets/images/placadevideo-1.jpg" class="card-img-top" alt="Producto 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Nvidia RTX 4090</h5>
+                                    <p class="card-text">Descripción breve del producto 2.</p>
+                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="./assets/images/x670placabase.jpg" class="card-img-top" alt="Producto 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">ASUS ROG X670E Extreme</h5>
+                                    <p class="card-text">Descripción breve del producto 3.</p>
+                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="./assets/images/corsair-ram.jpg" class="card-img-top" alt="Producto 4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Corsair Dominator Platinum</h5>
+                                    <p class="card-text">Descripción breve del producto 4.</p>
+                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="./assets/images/fuente-de-alimentacion.jpg" class="card-img-top" alt="Producto 5">
+                                <div class="card-body">
+                                    <h5 class="card-title">Corsair CX650F RGB</h5>
+                                    <p class="card-text">Descripción breve del producto 5.</p>
+                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="./assets/images/disco-solido-m2.jpg" class="card-img-top" alt="Producto 6">
+                                <div class="card-body">
+                                    <h5 class="card-title">Samsung 990 PRO</h5>
+                                    <p class="card-text">Descripción breve del producto 6.</p>
+                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev mobile-hidden" href="#productCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next mobile-hidden" href="#productCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+    </div>
+
+    <hr>
+    
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <span class="text-muted">© 2024 NehuOffers. Todos los derechos reservados.</span>
+            <br>
+            <a href="#">Política de Privacidad</a> | <a href="#">Términos de Uso</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

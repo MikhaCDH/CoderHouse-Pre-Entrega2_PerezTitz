@@ -1,0 +1,137 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    scrollbar-color: #454a4d #202324;
+}
+.navbar {
+    background-color: #343a40;
+}
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+}
+.fixed-top-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #343a40;
+}
+.search-bar {
+    background-color: #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.search-bar form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.search-bar .input-group {
+    width: 75%;
+}
+.search-bar input {
+    border-radius: 0;
+}
+.search-bar input:focus {
+    box-shadow: none;
+}
+.search-bar .input-group-append .btn {
+    border-radius: 0 25px 25px 0;
+}
+.search-bar .input-group-prepend .input-group-text {
+    background-color: white;
+    border-right: none;
+}
+.content {
+    margin-top: 136px; /* Espacio para navbar y search bar */
+}
+
+.footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+}
+.footer a {
+    color: #ffffff;
+}
+
+.input-group-text {
+    border-radius: 25px;
+}
+
+.mb-4, .my-4 {
+    margin-top: 2rem;
+}
+
+.content h2 {
+    font-weight: bold;
+    margin-top: 15rem;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.menu-secciones {
+    background-color: #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 106px; /* Altura de la navbar + search bar */
+    width: 100%;
+    z-index: 998;
+    text-align: center;
+}
+.menu-secciones a {
+    margin: 0 15px;
+    color: #000;
+    text-decoration: none;
+    
+}
+.menu-secciones a:hover {
+    text-decoration: underline;
+}
+.card-img-top {
+    cursor: pointer;
+}
+
+.card-title, .card-text {
+    white-space: nowrap;
+    overflow: hidden; /* Para ocultar el contenido que se desborda */
+    text-overflow: ellipsis;
+}
+
+#navbarNav ul li a{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+@media (min-width: 800px) and (max-width: 991px) {
+    .card-img-top {
+        height: 10rem;
+        width: 10rem;
+        align-self: center;
+        object-fit: cover;
+    }
+
+}
+
+
+@media (max-width: 799px) {
+    .card-img-top {
+        height: 55%;
+        width: 55%;
+        align-self: center;
+        object-fit: cover;
+    }
+    
+    .content h2 {
+        margin-top: 25%;
+    }
+
+
+    .mobile-hidden {
+        display: none;
+    }
+}
