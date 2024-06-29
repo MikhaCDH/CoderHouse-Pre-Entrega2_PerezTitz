@@ -68,13 +68,6 @@
     margin-top: 2rem;
 }
 
-.content h2 {
-    font-weight: bold;
-    margin-top: 15rem;
-    text-align: center;
-    text-decoration: underline;
-}
-
 @media (min-width: 769px) and (max-width: 991px) {
     .card-img-top {
         height: 10rem;
@@ -92,7 +85,4 @@
         object-fit: cover;
     }
     
-    .content h2 {
-        margin-top: 45%;
-    }
 }
