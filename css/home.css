@@ -93,14 +93,6 @@
     }
     
     .content h2 {
-        margin-top: 25%;
-    }
-
-    .mobile-hidden {
-        display: none;
-    }
-
-    .search-bar .input-group {
-        width: 95%;
+        margin-top: 45%;
     }
 }

@@ -130,10 +130,13 @@ body {
     object-fit: cover;
   }
   .content h2 {
-    margin-top: 25%;
+    margin-top: 30rem;
   }
   .mobile-hidden {
     display: none;
+  }
+  .search-bar .input-group {
+    width: 95%;
   }
 }
 
