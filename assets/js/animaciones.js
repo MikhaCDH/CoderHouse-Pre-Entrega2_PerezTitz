@@ -68,7 +68,7 @@ let heartInterval;
 
 function createHeart() {
     const heart = document.createElement('img');
-    heart.src = '../icons/icon50x50.png'; // Asegúrate de que esta ruta sea correcta
+    heart.src = 'icons/icon50x50.png'; // Asegúrate de que esta ruta sea correcta
     heart.className = 'heart';
 
     // Posición horizontal aleatoria entre 0 y 95% del ancho de la ventana
