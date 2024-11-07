@@ -2,9 +2,7 @@ const CACHE_NAME = 'mi-cache-v1';
 const URLS_A_CACHEAR = [
   '/index.html',
   '/styles.css',
-  '/icons/icon50x50.png',
-  '/assets/fonts/Outfit-VariableFont.ttf',
-  '/assets/fonts/Helvetica-Regular.ttf'
+  '/icons/icon50x50.png'
 ];
 
 self.addEventListener('install', event => {
