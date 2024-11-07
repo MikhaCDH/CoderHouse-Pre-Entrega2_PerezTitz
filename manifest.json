@@ -1,0 +1,16 @@
+{
+    "name": "Te Amo",
+    "short_name": "Te Amo",
+    "description": "Una página especial para expresar amor.",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ff4081",
+    "icons": [
+      {
+        "src": "/icons/icon50x50.png",
+        "sizes": "50x50",
+        "type": "image/png"
+      }
+    ]
+}  

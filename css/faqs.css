@@ -1,0 +1,191 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #2D562D;
+}
+
+a {
+    color: #2D562D;
+}
+
+.main {
+    background-image: url('../assets/images/backgrounds/desktop/background_faqs_1920x2948.jpg');
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: left;
+    height: 2235px;
+}
+
+.logo-central {
+    width: 25rem;
+    align-self: center;
+    position: absolute;
+    top: 8rem;
+}
+
+.container {
+    max-width: 90%;
+    margin: 250px auto 0;
+    padding: 2px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.faqs-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.faqs-buttons img {
+    width: 100px;
+}
+.faqs-buttons h1 {
+    font-size: 45px;
+    color: #2D562D;
+    text-align: left;
+    margin: 15px 0 40px 60px;
+    font-weight: 500;
+}
+
+.faqs-buttons div {
+    display: flex;
+    flex-direction: initial;
+    align-items: center;
+    justify-content: center;
+}
+
+.faqs-buttons div a {
+    font-size: 28px;
+}
+
+.faq {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.faq.destacado::before {
+    content: '•';
+    color: #2D562D;
+    font-size: 18px;
+    position: absolute;
+    left: -20px;
+    top: 5px;
+}
+
+.faq h3 {
+    font-size: 22px;
+    cursor: pointer;
+    color: #2D562D;
+    margin: 0;
+    font-weight: 600;
+    user-select: none; /* Estándar */
+    -webkit-user-select: none; /* Navegadores WebKit (Safari, Chrome) */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer y Edge */
+}
+
+
+.faq p {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    background: #f9f9f9;
+    border-left: 3px solid #4CAF50;
+    margin: 0;
+    transition: max-height 0.6s ease-out, padding 0.5s ease-out;
+}
+
+.faq p.show {
+    padding: 10px;
+    max-height: 150px;
+}
+
+.active {
+    text-decoration: underline;
+}
+
+.inactive {
+    color: #808080;
+}
+
+@media (max-width: 1366px) {
+    .main {
+        background-image: url('../assets/images/backgrounds/portatil/background-faqs-1366x3150.jpg');
+        height: 3150px;
+        background-position: left;
+        display: inline-block;
+        position: relative;
+    }
+    
+    .logo-central {
+        width: 20rem;
+    }
+
+    .container {
+        margin: 230px auto 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .faqs-buttons h1 {
+        margin-left: 85px;
+    }
+
+    .faq h3 {
+        font-size: 20px;
+    }
+
+    .faq p.show {
+        padding: 10px;
+        max-height: 200px;
+    }
+
+    .faq p.show.large {
+        max-height: 500px;
+    }
+}
+
+@media (max-width: 499px) {
+    .faqs-buttons h1 {
+        margin-left: 105px;
+    }
+}
+
+@media (max-width: 360px) {
+    .main {
+        background-image: url('../assets/images/backgrounds/movil/background-faqs-360x2640.jpg');
+        height: 3055px;
+        background-position: left;
+        display: inline-block;
+        position: relative;
+    }
+
+    .logo-central {
+        width: 15rem;
+    }
+
+
+    .container {
+        margin: 230px auto 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .faqs-buttons h1 {
+        margin-left: 25px;
+    }
+
+    .faq {
+        margin-bottom: 25px;
+    }
+
+    .faq h3 {
+        font-size: 16px;
+    }
+
+    .faq p.show {
+        max-height: 250px;
+    }
+
+    .faq p.show.large {
+        max-height: 600px;
+    }
+}

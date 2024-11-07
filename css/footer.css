@@ -1,0 +1,160 @@
+.container-general-footer {
+    background-color: #1D1D1B;
+    display: inline-flex;
+    margin: 0 auto;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Elementos */
+
+.elementos-footer {
+    justify-content: center;
+    display: flex;
+    margin-top: 20px;
+}
+
+.elementos-footer div h1 {
+    text-align: start;
+    font-size: 28px;
+}
+
+.elementos-footer div a {
+    margin-bottom: 5px;
+}
+
+.elementos-juntos {
+    display: flex;
+}
+
+.elementos-juntos a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 5px auto;
+    color: #EDEDED;
+}
+
+@keyframes expandir-contratar {
+    0% { 
+    transform: scale(1);
+    }
+    50% {
+    transform: scale(1.2);
+    }
+    100% {
+    transform: scale(1);
+    }
+}
+
+.botones-footer {
+    border-style: none;
+    cursor: pointer;
+    border-radius: 25px;
+    padding: 8px;
+    line-height: 20px;
+    margin-top: 20px;
+}
+
+.botones-footer:hover {
+    animation: expandir-contratar .5s;
+    animation-play-state: running;
+}
+
+.elemento-2 img {
+    width: auto;
+    height: 12rem;
+}
+
+.container-general-footer hr {
+    height: 3px;
+    width: 75%;
+    border: none;
+    border-radius: 20px;
+    background-color: #D9D9D9;
+    margin: 30px 10px auto 55px;
+}
+
+.elementos-footer span {
+    letter-spacing: 2.8px;
+    color: #EDEDED;
+    display: flex;
+    text-align: start;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.container-general-footer span {
+    text-transform: none;
+    text-decoration: none;
+    font-family: "Helvetica-Regular", sans-serif;
+}
+
+.elementos-footer span:hover {
+    color: #FFF;
+}
+
+.faqs {
+    margin: 0;
+    font-size: 25px;
+    justify-content: center;
+}
+
+/* Dispositivos Moviles */
+
+@media (max-width: 799px) {
+    .botones-footer:focus {
+        background-color: #EDEDED;
+    }
+
+    .elementos-footer span:focus {
+        color: #FFF;
+    }
+
+    .elementos-footer {
+        grid-template-columns: repeat(1, 270px);
+        margin: 0;
+    }
+
+    .elementos-footer div {
+        margin-top: 30px;
+    }
+
+    .container-general-footer hr {
+        width: 50%;
+        margin: 3.5rem 10px auto 55px;
+    }
+}
+
+@media (max-width: 685px) {
+    .elementos-footer{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .elementos-footer div{
+        margin-top: 0;
+        justify-content: center;
+    }
+
+    .container-general-footer hr {
+        display: none;
+    }
+
+    .botones-footer {
+        padding: 0;
+    }
+
+    .elementos-footer .elementos-juntos:nth-of-type(2) a {
+        margin: 15px 20px;
+
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1350px) {
+    .elementos-footer {
+        justify-content: center;
+        
+    }
+}

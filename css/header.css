@@ -1,0 +1,325 @@
+@keyframes slideDown {
+	from {
+		transform: translatey(-100%);
+	}
+
+	to {
+		transform: translatey(0);
+	}
+}
+
+.header.slide-down {
+	animation: slideDown .8s ease forwards;
+}
+
+.background-header {
+	width: 100%;
+	height: 70px;
+	background-color: #e9e8ddde;
+    position: fixed;
+	top: 0;
+	z-index: 10000;
+}
+
+.background-header.slide-down {
+	animation: slideDown .6s ease forwards;
+}
+
+.encuadre-header {
+	padding: 15px 60px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+    
+}
+
+.logo-header-container img {
+	height: 52px;
+
+}
+
+.menu-toggle {
+	display: none;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 24px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+}
+
+.menu-toggle span {
+	width: 24px;
+	height: 2px;
+	background: #EEECD5;
+}
+
+#menu-list {
+	display: flex;
+	align-items: center;
+	margin: 0 20px;
+	list-style-type: none;
+}
+
+.menu ul li {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.menu ul li a {
+	text-decoration: none;
+	font-size: 20px;
+	color: #1E1E1E;
+	font-weight: 400;
+}
+
+.menu ul li a:hover {
+	color: #464444;
+}
+
+.menu ul li a.current-page:hover {
+	color: #1E1E1E;
+}
+
+.contactanos {
+    background-color: #1E1E1E;
+	cursor: pointer;
+    border-radius: 23px;
+	margin: 0 45px 0;
+}
+
+.contactanos span {
+    padding: 2px 15px;
+    color: #EDEDED;
+    font-size: 15px;
+    text-align: center;
+	display: flex;
+}
+
+.separador {
+    border: 1px solid #1E1E1E;
+    height: 1.5rem;
+	margin: 0 30px;
+}
+
+
+
+/* Header - Dispositivos Móviles */
+
+@media (min-width: 800px) and (max-width: 1024px) {
+
+	.encuadre-header {
+		padding: 15px 20px;
+	}
+
+	.menu {
+		margin: 0 -30px 0;
+	}
+
+	.menu ul li a {
+		text-decoration: none;
+		margin: 0 10px;
+		letter-spacing: 0;
+	}
+	
+}
+
+@media (max-width: 799px) {
+
+	.separador {
+		display: none;
+	}
+
+	.encuadre-header {
+		justify-content: space-between;
+		padding: 15px 0px;
+	}
+
+	.menu-header-container.show {
+		display: flex;
+		overflow: hidden;
+		animation-name: menuShow;
+		animation-duration: 1.25s;
+	}
+
+	@keyframes menuShow {
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 1;
+		}
+	}
+
+	.menu-header-container.hide {
+		animation-name: menuHide;
+		animation-duration: 1.25s;
+	}
+
+	@keyframes menuHide {
+		from {
+			opacity: 1;
+		}
+
+		to {
+			opacity: 0;
+		}
+	}
+
+	.menu-header-container a {
+		margin: 0;
+		text-align: right;
+		padding: 10px;
+		width: 100%;
+		letter-spacing: 2px;
+		color: #EDEDED;
+		background-color: black;
+		border-radius: 50px;
+	}
+	
+	.menu-header-container a:focus,
+	.menu-header-container a:hover {
+		text-decoration: underline;
+	}
+
+	.menu-header-container a.current-page:hover {
+		color: #EDEDED;
+		text-decoration: none;
+	}
+
+	.menu-header-container a.not-current-page:hover,
+	.menu-header-container a.not-current-page span:hover {
+		color: #3d3636 !important;
+	}
+
+	.menu-header-container a:nth-child(3) {
+		margin: 20px 0;
+	}
+
+	.menu-toggle {
+        background-color: #CEE860;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        border-radius: 5px;
+        margin-left: 200px;
+    }
+
+    .menu-toggle span {
+        width: 18px;
+        height: 2px;
+        background-color: #2D562D;
+        margin: 2px 0;
+        border-radius: 50px;
+    }
+
+    .menu-toggle:hover {
+        background-color: #2D562D;
+    }
+
+    .menu-toggle:hover span {
+        background-color: #CEE860;
+    }
+
+    .menu-toggle.active span {
+        margin: 0;
+        position: fixed;
+        height: 3px;
+        width: 22px;
+        border-radius: 10px;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+        margin: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 90px;
+        z-index: 999;
+        transform: translateX(100%);
+        transition: transform .6s;
+        overflow: hidden;
+		margin: 0;
+		width: auto;
+    }
+
+
+	#menu-list {
+		display: block;
+		margin: 0;
+	}
+
+    .menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu ul li {
+        transform: translateX(100%) translateY(0px); /* Iniciar fuera de la vista y ligeramente hacia abajo */
+        transition: transform .6s ease-out, opacity 0.4s ease-out;
+    }
+
+    .menu ul li a {
+        display: block;
+        color: black;
+        padding: 12px 0 8px 0px;
+        text-decoration: none;
+        text-align: end;
+    }
+
+    .menu ul li a:hover {
+        text-decoration: underline;
+    }
+
+	.contactanos{
+		display: flex;
+		background-color: transparent;
+		border-radius: 0;
+		justify-content: right;
+	}
+
+	.contactanos span {
+		padding: 0;
+		color: #EDEDED;
+		font-size: 15px;
+		display: flex;
+		justify-content: right;
+		text-align: right;
+	}
+}
+
+@media (max-width: 490px) {
+	.logo-header-container img {
+		height: 40px;
+	}
+
+	.menu {
+		margin: 5px 0;
+	}
+	.menu a[href="https://calendly.com/arboltecno"] {
+		margin: 0;
+		top: -8px;
+		position: relative;
+	}
+	
+}
