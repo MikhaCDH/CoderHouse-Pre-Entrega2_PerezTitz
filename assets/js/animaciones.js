@@ -63,4 +63,58 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// Animacion Corazones
+let heartInterval;
 
+function createHeart() {
+    const heart = document.createElement('img');
+    heart.src = '../icons/icon50x50.png'; // Asegúrate de que esta ruta sea correcta
+    heart.className = 'heart';
+
+    // Posición horizontal aleatoria entre 0 y 95% del ancho de la ventana
+    if (window.matchMedia('(max-width: 425px)').matches) {
+        heart.style.left = Math.random() * 82 + '%';
+    } else if (window.matchMedia('(max-width: 799px)').matches) {
+        heart.style.left = Math.random() * 90 + '%';
+    } else {
+        heart.style.left = Math.random() * 95 + 'vw';
+    }    
+
+    // Duración de animación aleatoria entre 3 y 6 segundos
+    const duration = Math.random() * 3 + 3;
+    heart.style.animationDuration = duration + 's';
+
+    // Añade el corazón al cuerpo del documento
+    document.body.appendChild(heart);
+
+    // Elimina el corazón después de que termine la animación para optimizar
+    heart.addEventListener('animationend', () => {
+        heart.remove();
+    });
+}
+
+function startHearts() {
+    // Evita múltiples intervalos
+    if (!heartInterval) {
+        heartInterval = setInterval(createHeart, 250);
+    }
+}
+
+function stopHearts() {
+    clearInterval(heartInterval);
+    heartInterval = null;
+}
+
+// Inicia los corazones si la página está visible al cargar
+if (document.visibilityState === 'visible') {
+    startHearts();
+}
+
+// Escucha los cambios de visibilidad de la página
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        startHearts();
+    } else {
+        stopHearts();
+    }
+});
