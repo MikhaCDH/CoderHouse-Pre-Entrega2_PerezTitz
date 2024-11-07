@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Todo por vos</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./icon.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-color: black;
+        }
+
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .fade-text {
+            position: absolute;
+            opacity: 0;
+            font-size: 48px;
+            text-align: center;
+            transition: opacity 1.5s;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+        .container {
+            position: absolute;
+            display: none; /* Ocultar el contenedor al inicio */
+            width: 400px;
+            height: 400px;
+            top: 50%; /* Centrar verticalmente */
+            left: 50%; /* Centrar horizontalmente */
+            transform: translate(-50%, -50%); /* Ajustar posición para centrar */
+        }
+
+        .circle-point {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        @keyframes colorChange {
+            0% { background-color: #ff7abd; }
+            100% { background-color: rgb(255, 0, 200); }
+        }
+
+        @keyframes colorChangeOpposite {
+            0% { background-color: rgb(255, 0, 200); }
+            100% { background-color: #ff7abd; }
+        }
+
+        .layer-0 .circle-point,
+        .layer-2 .circle-point {
+            animation: colorChange 0.15s infinite alternate;
+        }
+
+        .layer-1 .circle-point {
+            animation: colorChangeOpposite 0.15s infinite alternate;
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000;
+            text-align: center;
+            font-size: 20px;
+            width: 400px;
+            z-index: 1000;
+            text-shadow: 
+                1px 1px 0 rgb(131, 19, 106), 
+                -1px -1px 0 rgb(131, 19, 106), 
+                1px -1px 0 rgb(131, 19, 106), 
+                -1px 1px 0 rgb(131, 19, 106);
+        }
+
+        .heart {
+            position: absolute;
+            top: 0;
+            width: 50px; /* Ajusta el tamaño si es necesario */
+            height: 50px; /* Ajusta el tamaño si es necesario */
+            animation: fall linear;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -50px; /* Empieza justo encima de la pantalla */
+                opacity: 1;
+            }
+            100% {
+                top: 100vh; /* Termina fuera de la pantalla en la parte inferior */
+                opacity: 0;
+            }
+        }
+
+        #muteButton {
+            cursor: pointer;
+        }
+
+        @media (max-width: 425px) {
+            .text {
+                font-size: 16px;
+                width: 260px;
+            }
+
+            .fade-text {
+                font-size: 25px;
+                width: 345px;
+            }
+
+            #background {
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+
+            .heart {
+                width: 30px;
+                height: 30px;
+            }
+
+            #muteButton {
+                position: fixed;
+                bottom: 150px;
+                right: 0;
+                background-color: #ededed;
+                border: none;
+                border-radius: 25px;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button id="muteButton">
+        <img id="muteIcon" src="sound_on.png" alt="Mute Button">
+    </button>    
+
+    <div id="background"></div>
+    <div id="textContainer" class="fade-text">Jazmin...</div>
+    <div class="container" id="circleContainer">
+        <div class="text">
+            Sos el amor de mi vida y mi persona favorita.<br>
+            Gracias por todo y...<br>
+            No te vayas nunca de mi lado <3
+        </div>
+    </div>
+
+    <!-- Agregamos los elementos de audio -->
+    <audio id="inicioAudio" src="inicio.wav"></audio>
+    <audio id="finalAudio" src="final.wav"></audio>
+
+    <script>
+        const texts = ["Jazmin...", "Hice esto, porque quería decirte que...", "A pesar de todas nuestras discusiones, nuestros problemas, y las cosas que hacemos mal por malas decisiones que tomamos...", "Más allá, del bien y el mal, Más allá, de todo...", "...."];
+        let currentIndex = 0;
+        const textContainer = document.getElementById('textContainer');
+        const circleContainer = document.getElementById('circleContainer');
+        let isTransitioning = false; // Controla si una transición está en progreso
+
+        // Lista de imágenes de fondo
+        const backgroundImages = ["love1.jpg", "love2.jpg", "love3.jpg", "love4.jpg", "love5.jpg", "love6.jpg", "love7.jpg", "love8.jpg", "love9.jpg", "love10.jpg", "love11.jpg", "love12.jpg", "love13.jpg", "love14.jpg"];
+        const backgroundChangeInterval = 1000; // Tiempo en milisegundos para cambiar la imagen de fondo
+        const backgroundDiv = document.getElementById('background');
+        let backgroundInterval; // Variable para almacenar el intervalo
+
+        // Elementos de audio
+        const inicioAudio = document.getElementById('inicioAudio');
+        const finalAudio = document.getElementById('finalAudio');
+
+
+        function changeBackgroundImage() {
+            const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+            const imageUrl = backgroundImages[randomIndex];
+            backgroundDiv.style.backgroundImage = `url(${imageUrl})`;
+        }
+
+        function startBackgroundSlideshow() {
+            // Establecer la imagen de fondo inicial
+            changeBackgroundImage();
+            // Iniciar el cambio de imágenes de fondo
+            backgroundInterval = setInterval(changeBackgroundImage, backgroundChangeInterval);
+        }
+
+        // Animacion Corazones
+        let heartInterval;
+
+        function createHeart() {
+            const heart = document.createElement('img');
+            heart.src = '/icons/icon50x50.png'; // Asegúrate de que esta ruta sea correcta
+            heart.className = 'heart';
+
+            // Posición horizontal aleatoria entre 0 y 95% del ancho de la ventana
+            if (window.matchMedia('(max-width: 425px)').matches) {
+                heart.style.left = Math.random() * 78 + '%';
+            } else if (window.matchMedia('(max-width: 799px)').matches) {
+                heart.style.left = Math.random() * 90 + '%';
+            } else {
+                heart.style.left = Math.random() * 95 + 'vw';
+            }    
+
+            // Duración de animación aleatoria entre 3 y 6 segundos
+            const duration = Math.random() * 3 + 3;
+            heart.style.animationDuration = duration + 's';
+
+            // Añade el corazón al cuerpo del documento
+            document.body.appendChild(heart);
+
+            // Elimina el corazón después de que termine la animación para optimizar
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
+        }
+
+        function startHearts() {
+            // Evita múltiples intervalos
+            if (!heartInterval) {
+                heartInterval = setInterval(createHeart, 250);
+            }
+        }
+
+        function stopHearts() {
+            clearInterval(heartInterval);
+            heartInterval = null;
+        }
+
+        function fadeInAudio(audioElement, duration, maxVolume = 1) {
+            audioElement.volume = 0;
+            audioElement.play();
+            let startTime = Date.now();
+            const fadeInInterval = setInterval(() => {
+                let elapsed = Date.now() - startTime;
+                if (elapsed < duration) {
+                    audioElement.volume = (elapsed / duration) * maxVolume;
+                } else {
+                    audioElement.volume = maxVolume;
+                    clearInterval(fadeInInterval);
+                }
+            }, 50);
+        }        
+
+        function fadeOutAudio(audioElement, duration) {
+            let startVolume = audioElement.volume;
+            let startTime = Date.now();
+            const fadeOutInterval = setInterval(() => {
+                let elapsed = Date.now() - startTime;
+                if (elapsed < duration) {
+                    audioElement.volume = startVolume * (1 - (elapsed / duration));
+                } else {
+                    audioElement.volume = 0;
+                    audioElement.pause();
+                    audioElement.currentTime = 0;
+                    clearInterval(fadeOutInterval);
+                }
+            }, 50);
+        }
+
+        function showNextText() {
+            if (isTransitioning) return;
+
+            isTransitioning = true;
+
+            // Iniciar fade-out del texto actual
+            textContainer.style.opacity = 0;
+
+            // Esperar a que el fade-out termine
+            setTimeout(() => {
+                currentIndex++;
+
+                if (currentIndex < texts.length) {
+                    // Actualizar el contenido al siguiente texto
+                    textContainer.textContent = texts[currentIndex];
+
+                    // Iniciar fade-in del nuevo texto
+                    textContainer.style.opacity = 1;
+
+                    // **Detener la música inicial al llegar al texto "...."**
+                    if (texts[currentIndex] === "....") {
+                        fadeOutAudio(inicioAudio, 3500, 0.4); // Fade-out de 1.5 segundos
+                    }
+
+                    // Esperar a que el fade-in termine
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 1500);
+                } else {
+                    // Todos los textos han sido mostrados, mostrar los círculos
+                    textContainer.style.display = 'none';
+                    circleContainer.style.display = 'block';
+                    loadCircles();
+                    isTransitioning = false;
+
+                    // Iniciar el cambio de imágenes de fondo
+                    startBackgroundSlideshow();
+
+                    // Iniciar la música final con fade-in
+                    fadeInAudio(finalAudio, 1500, 0.4); // Fade-in de 1.5 segundos con un volumen máximo de 0.3
+
+                    // Iniciar la animación de los corazones
+                    startHearts();
+                }
+            }, 1500);
+        }
+
+        function loadCircles() {
+            const numPoints = 50; // Número de puntos en cada círculo
+            let baseRadius = 220; // Radio base del círculo
+            let layerGap = 20; // Separación entre capas
+
+            if (window.matchMedia('(max-width: 425px)').matches) {
+                baseRadius = 150;
+                layerGap = 15;
+            } else if (window.matchMedia('(max-width: 799px)').matches) {
+                baseRadius = 200;
+                layerGap = 20;
+            } else {
+                baseRadius = 220;
+                layerGap = 20;
+            }
+
+            for (let layer = 0; layer < 3; layer++) {
+                const radius = baseRadius + layer * layerGap;
+
+                const layerDiv = document.createElement('div');
+                layerDiv.classList.add(`layer-${layer}`);
+                circleContainer.appendChild(layerDiv);
+
+                for (let i = 0; i < numPoints; i++) {
+                    const angle = (2 * Math.PI / numPoints) * i;
+                    const x = radius * Math.cos(angle) + circleContainer.clientWidth / 2;
+                    const y = radius * Math.sin(angle) + circleContainer.clientHeight / 2;
+
+                    const point = document.createElement('div');
+                    point.classList.add('circle-point');
+                    point.style.left = `${x}px`;
+                    point.style.top = `${y}px`;
+
+                    layerDiv.appendChild(point);
+                }
+            }
+        }
+
+        // Variable para controlar si el audio ya ha comenzado
+        let audioStarted = false;
+
+        function startInitialAudio() {
+            if (!audioStarted) {
+                audioStarted = true;
+                fadeInAudio(inicioAudio, 1500, 0.5); // Fade-in de 1.5 segundos con un volumen máximo de 0.3
+            }
+        }
+
+        document.body.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                startInitialAudio();
+                showNextText();
+            }
+        });
+
+        document.body.addEventListener('click', () => {
+            startInitialAudio();
+            showNextText();
+        });
+
+        // Mostrar el primer texto al cargar la página sin iniciar el audio
+        window.onload = () => {
+            textContainer.textContent = texts[currentIndex];
+            textContainer.style.opacity = 1;
+
+            setTimeout(() => {
+                isTransitioning = false; // Permitir avanzar después de que el primer texto ha aparecido
+            }, 1500); // Duración del primer fade-in
+        };
+    </script>
+    <script>
+        // Agregar funcionalidad al botón de silencio
+        document.getElementById('muteButton').addEventListener('click', (e) => {
+            e.stopPropagation(); // Detiene la propagación del evento para que no se dispare el evento de clic en el body
+        
+            const audioElements = document.querySelectorAll('audio, video');
+            const muteIcon = document.getElementById('muteIcon');
+            const muteButton = document.getElementById('muteButton');
+        
+            // Deshabilitar el botón para evitar clics rápidos
+            muteButton.disabled = true;
+        
+            audioElements.forEach(audio => {
+                if (!audio.muted) {
+                    audio.muted = true;
+                    muteIcon.src = 'sound_off.png'; // Cambia a la imagen de "silenciado"
+                } else {
+                    audio.muted = false;
+                    muteIcon.src = 'sound_on.png'; // Cambia a la imagen de "sonido activado"
+                }
+            });
+        
+            // Habilitar el botón nuevamente después de 400 milisegundos
+            setTimeout(() => {
+                muteButton.disabled = false;
+            }, 400);
+        });         
+    </script>
+</body>
+</html>

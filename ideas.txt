@@ -1,0 +1,3 @@
+poner el programa hecho en python pero en HTML
+poner un carrusel con las fotos y las cartas de ella
+

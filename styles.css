@@ -1,300 +1,74 @@
 /* Reset Global */
 
 *,::before,::after {
-box-sizing:border-box;
-scrollbar-color:#454a4d #202324;
-text-decoration:none;
-margin:0;
+    box-sizing:border-box;
+    scrollbar-color:#454a4d #202324;
+    text-decoration:none;
+    margin:0;
 }
-
+    
 img,picture,video,canvas,svg {
-display:block;
-max-width:100%;
+    display:block;
+    max-width:100%;
 }
-
+    
 input,textarea,select {
-font:inherit;
+    font:inherit;
 }
-
+    
 p,h1,h2,h3,h4,h5,h6 {
-overflow-wrap:break-word;
+    overflow-wrap:break-word;
 }
-
+    
 #root,#__next {
-isolation:isolate;
+    isolation:isolate;
 }
 
-/* Titulos */
-
-
-html,body {
-    background-color: #F5F5F5;
-    color: #2D562D;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    font-family: 'Helvetica-Regular', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    margin: 0;
-    line-height: 1.5;
-}
-
-header {
-    background-color: #F5F5F5;
-    padding: 0 20px;
-    font-family: 'Outfit-Variable', sans-serif;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    font-weight: 300;
-    font-family: 'Outfit-Variable', sans-serif;
-    color: #2D562D;
-}
-
-hr {
-    height: 3px;
-    width: 55%;
-    display: flex;
-    justify-content: center;
-    border: 0;
-    background-color: #1E1E1E;
-    border-radius: 15px;
-    margin: auto;
-}
-
-button {
-    font-family: 'Outfit-Variable', sans-serif;
-}
-
-a {
-    color: #EDEDED;
-}
-
-.no-padding {
-    padding: 0;
-}
-
-.fade-in {
-    opacity: 1;
-    transition: opacity .5s ease-in-out;
-}
-
-.fade-out {
-    opacity: 0;
-    transition: opacity .30s ease-in-out;
-}
-
-.letter {
-    display: inline-block;
-    transition: transform .3s ease;
-    color: #000;
-}
-.jump {
-    transform: translateY(-4px);
-}
-
-@keyframes floating-form-button-jump {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-.floating-form-button {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    color: #fff;
-    width: 85px;
-    height: 85px;
-    border-radius: 100%;
-    text-align: center;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 999;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.5s ease;
-}
-
-.notification-dot {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 18px;
-    height: 18px;
-    background-color: red;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.floating-form-button img {
-    height: 60px;
-    width: 60px;
-    margin-left: 13px;
-}
-
-/* Modal del Formulario */
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-}
-.modal-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 500px;
-}
-.close-button {
-    float: right;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* Widget "Soporte" */
-
-.freshwidget-theme {
-    font-weight: 100 !important;
-    display: none;
-}
-
-.freshwidget-dialog {
-    top: 125px !important;
-}
-
-@media (max-width: 799px) {
-    .freshwidget-button {
-        top: 55% !important;
-    }
-}
-
-@media (max-width: 799px) {
-    .button-whatsapp-flotante {
-        bottom: 40px;
-        width: 50px;
-        height: 50px;
-    }
-}
-
-.large-button {
-    width: 620px !important;
-    height: 86px !important;
-}
-
-.small-button {
-    width: 253px !important;
-    height: 5rem !important;
-}
-
-.botones-container {
-    display: flex;
-    justify-content: center;
-    gap: 7rem;
-    margin-top: 30px;
-    transition: transform .6s;
-}
-
-.boton-home {
-    align-content: center;
-    border-radius: 50px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 31px;
-    transition: background-color .3s, color .3s;
-    cursor: pointer;
-    display: inline-block;
-}
-
-.boton-home:hover {
-    background-color: #CEE860;
-    border: 2.5px solid #CEE860;
-    color: #2D562D;
-}
-
-.boton-blanco {
-    border: 2.5px solid #2D562D;
-    color: #2D562D;
+body {
     background-color: #EDEDED;
 }
 
-.boton-verde {
-    border: 2.5px solid #EDEDED;
-    color: #EDEDED;
-    background-color: #2D562D;
+@font-face {
+	font-family: 'Itim';
+	src: url('../assets/fonts/Itim-Regular.ttf') format('truetype');
 }
 
-@media (min-width: 366px) and (max-width: 1366px) {
-    .botones-container {
-        display: flex;
-        justify-content: center;
-        gap: 7rem;
-        margin-top: 30px;
-        transition: transform .6s;
-    }
+@font-face {
+	font-family: 'Exo2';
+	src: url('../assets/fonts/Exo2-VariableFont_wght.ttf') format('truetype');
+}
 
-    .boton-home {
-        font-size: 25px;
-    }
+@font-face {
+	font-family: 'Tiny5';
+	src: url('../assets/fonts/Tiny5-Regular.ttf') format('truetype');
+}
 
-    .large-button {
-        width: 600px !important;
-        height: 86px !important;
+header {
+	font-family: 'Itim', sans-serif;
+}
+
+.heart {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    animation: fall linear;
+}
+
+@keyframes fall {
+    0% {
+        top: -50px; /* Empieza justo encima de la pantalla */
+        opacity: 1;
     }
-    
-    .small-button {
-        width: 230px !important;
-        height: 70px !important;
+    100% {
+        top: 100vh; /* Termina fuera de la pantalla en la parte inferior */
+        opacity: 0;
     }
 }
 
-@media (max-width: 799px) {
-    .large-button {
-        width: 425px !important;
-        height: 85px !important;
-    }
-
-    .boton-home {
-		font-size: 20px;
-		margin: 0;
-	}
-}
-
-@media (max-width: 490px) {
-    .large-button {
-        width: 235px !important;
-        height: 45px !important;
-    }
-
-    .small-button {
-        width: 170px !important;
-        height: 60px !important;
-    }
-    
-    .boton-home {
-        font-size: 15px;
-    }
-
-    .floating-form-button {
-        width: 70px;
-        height: 70px;
-    }
-
-    
-    .notification-dot {
-        width: 15px;
-        height: 15px;
-    }
-
-    .floating-form-button img {
-        height: 50px;
-        width: 50px;
-        margin-left: 11px;
+@media (max-width: 425px) {
+    .heart {
+        width: 30px;
+        height: 30px;
     }
 }
